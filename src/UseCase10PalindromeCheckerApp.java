@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class UseCase9PalindromeCheckerApp {
+public class UseCase10PalindromeCheckerApp {
 
     // Recursive function
     public static boolean isPalindrome(String str, int start, int end) {
