@@ -1,12 +1,14 @@
 import java.util.Scanner;
+import java.util.Queue;
+import java.util.LinkedList;
 import java.util.Stack;
 
-public class UseCase5PalindromeCheckerApp {
+public class UseCase6PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
         System.out.println("=======================================");
-        System.out.println("     PALINDROME CHECKER APP - UC5      ");
+        System.out.println("     PALINDROME CHECKER APP - UC6      ");
         System.out.println("=======================================");
 
         Scanner sc = new Scanner(System.in);
@@ -15,25 +17,29 @@ public class UseCase5PalindromeCheckerApp {
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
-        // Create stack
+        // Create Queue and Stack
+        Queue<Character> queue = new LinkedList<>();
         Stack<Character> stack = new Stack<>();
 
-        // Push characters into stack
+        // Insert characters
         for (int i = 0; i < input.length(); i++) {
-            stack.push(input.charAt(i));
+            char ch = input.charAt(i);
+            queue.add(ch);     // enqueue
+            stack.push(ch);    // push
         }
 
-        // Compare while popping
+        // Compare dequeue vs pop
         boolean isPalindrome = true;
 
         for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) != stack.pop()) {
+
+            if (queue.remove() != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
         }
 
-        // Print result
+        // Result
         if (isPalindrome) {
             System.out.println("Result: It is a Palindrome.");
         } else {
